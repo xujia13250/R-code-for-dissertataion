@@ -1,4 +1,4 @@
-setwd("C:/Users/Administrator/Desktop/论文/论文/part3/")
+setwd("C:/Users/Administrator/Desktop/脗脹脦脛/脗脹脦脛/part3/")
 #install.packages("devtools")
 #devtools::install_github('sarawade/mcclust.ext')
 source("credibleball_v2.R")
@@ -142,7 +142,7 @@ gibbs.lpost.clusttrue = function(x,clust,T0=diag(1,2,2),kappa0=2,v0=2,mu0=c(0,0)
     njs=sum(config_s==j)
     lpostvalue=lpostvalue+sum(dmvnorm(df[df$cluster==j,][,1:d],mu[j,],Sigma[,,j],log=TRUE))+
       log(dwish(Sigma[,,j],v_k[j],solve(T_k[,,j])))+log(dmvnorm(mu[j,],mu_k[j,],1/kappa_k[j]*Sigma[,,j]))
-  }   ####dwish will occur NaN 
+  }   ####dwish will occur NaN, we omit it.
   return(lpostvalue)
 }
  
@@ -265,7 +265,7 @@ print( paste("khat=", khatsims[simnum,ch]) )
 }
   print(proc.time() - begin.time)
 }
-save.image("exampleUNIF_n100.1111.RData")
+#save.image("exampleUNIF_n100.1111.RData")
 
 
   
